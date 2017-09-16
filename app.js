@@ -5,7 +5,7 @@ const app = {
 
 const nav = {
     selector: 'navigation',
-    template: '<a href="/#/"> Main</a> <a href="/#/second"> Second</a>'
+    template: '<a href="./#/"> Main</a> <a href="./#/second"> Second</a>'
 };
 
 const mainPage = {
