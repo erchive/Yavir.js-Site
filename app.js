@@ -13,8 +13,21 @@ const mainPage = {
     selector: 'main-page',
     template: '<h1>Main Page</h1> <pre>{{ test }}</pre>',
     script: function () {
-        // x(this.selector).html(x(this.selector).html().replace('{{ test }}', 'test'));
-        x(this.selector).html(this.template.replace('{{ test }}', 'lolo'))
+        x().request({
+            method: 'GET',
+            url: 'https://jsonplaceholder.typicode.com/photos',
+            onStart: e => {
+                x(this.selector).html(this.template.replace('{{ test }}', 'loading..'))
+            },
+            onProgress: e => {
+                x(this.selector).html(this.template.replace('{{ test }}', e.loaded + '/' + e.total))
+            },
+            onComplete: ex => {
+                x(this.selector).html(this.template.replace('{{ test }}', ex.responseText))
+            }
+
+        });
+
     }
 };
 

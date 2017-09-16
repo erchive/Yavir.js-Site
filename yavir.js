@@ -73,8 +73,6 @@ X.prototype.appendChild = function (child) {
 };
 
 X.prototype.request = function (params) {
-    log(params);
-
     if ("undefined" !== typeof params.headers) {
         if (params.headers.length !== 0) {
             params.headers.forEach(function (e) {
