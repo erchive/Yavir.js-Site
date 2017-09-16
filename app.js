@@ -20,7 +20,7 @@ const mainPage = {
                 x(this.selector).html(this.template.replace('{{ test }}', 'loading..'))
             },
             onProgress: e => {
-                x(this.selector).html(this.template.replace('{{ test }}', e.loaded + '/' + e.total))
+                x(this.selector).html(this.template.replace('{{ test }}', 'loading: ' + e.loaded))
             },
             onComplete: ex => {
                 x(this.selector).html(this.template.replace('{{ test }}', ex.responseText))
